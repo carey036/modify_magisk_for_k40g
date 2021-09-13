@@ -68,7 +68,9 @@ jobs:
           ./ccache -zp
           echo 'org.gradle.jvmargs=-Xmx3096m' >> gradle.properties
           python build.py -vr all
-          cp -f ./out/app-release.apk /opt/Magisk_alpha.apk
+          cp -f ./out/app-release.apk /opt/Magisk_alpha_app.apk
+          cp -f ./out/stub-release.apk /opt/Magisk_alpha_stub.apk
+          echo `git log -1 --format='%h'` > /opt/MagiskVersion.prop
 #      - name: Build debug
 #        run: |
 #          python build.py -v all
@@ -93,10 +95,15 @@ jobs:
 
       - name: upload to repo
         run: |
-          cp /opt/Magisk_alpha.apk Magisk_alpha.apk
+          cp /opt/Magisk_alpha_app.apk ./release/Magisk_alpha_app.apk
+          cp /opt/Magisk_alpha_stub.apk ./release/Magisk_alpha_stub.apk
+          MagiskVerison=`cat /opt/version.prop`
+          echo '{"magisk":{"version":"'$MagiskVerison'","versionCode":"23001","link":"Magisk_alpha_app.apk","link64":"Magisk_alpha_app.apk","note":"https://cdn.jsdelivr.net/gh/vvb2060/Magisk@bb56d78bca333b5c60f7535eb1a4ed41a1567497/app/src/main/res/raw/changelog.md"},"stub":{"versionCode":"21","link":"Magisk_alpha_stub.apk"}}' > ./release/alpha.json
           ls -a
           git config --global user.name ${{ secrets.GITHUBUSER }}
           git config --global user.email ${{ secrets.GITHUBEMAIL }}
-          git add Magisk_alpha.apk
+          git add ./release/Magisk_alpha_stub.apk
+          git add ./release/Magisk_alpha_app.apk
+          git add ./release/alpha.json
           git commit -m 'build Alpha Magisk' && echo commit
           git push origin main && echo push!
