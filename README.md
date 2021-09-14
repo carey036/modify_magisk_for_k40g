@@ -18,7 +18,7 @@ alpha基于[vvb2060/Magisk at alpha (github.com)](https://github.com/vvb2060/Mag
 
 [alpha](https://cdn.jsdelivr.net/gh/carey036/modify_magisk_for_k40g/release/Magisk_alpha_app.apk)
 
-alpha更新通道 https://cdn.jsdelivr.net/gh/carey036/modify_magisk_for_k40g/release/alpha.json
+alpha更新通道 https://raw.githubusercontent.com/carey036/modify_magisk_for_k40g/main/release/alpha.json
 
 ### 已知问题
 
