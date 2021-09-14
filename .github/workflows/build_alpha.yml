@@ -2,7 +2,9 @@ name: Build alpha magisk for k40g
 
 on: 
   workflow_dispatch:
-
+  schedule:
+    # * is a special character in YAML so you have to quote this string
+    - cron:  '* * 0 * 4'
 jobs:
   build:
     name: Build on ubuntu-latest
