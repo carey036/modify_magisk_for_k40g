@@ -38,7 +38,7 @@ jobs:
           echo "keyAlias=xingsuo" >> config.prop.sample
           echo "keyPass=magisk" >> config.prop.sample
           cat config.prop.sample > config.prop
-          
+
       - name: Set up JDK 11
         uses: actions/setup-java@v1
         with:
@@ -102,7 +102,7 @@ jobs:
 
       - name: upload to repo
         run: |
-          cp /opt/Magisk_stable.apk_app ./release/Magisk_stable_app.apk
+          cp /opt/Magisk_stable_app.apk_app ./release/Magisk_stable_app.apk
           git config --global user.name ${{ secrets.GITHUBUSER }}
           git config --global user.email ${{ secrets.GITHUBEMAIL }}
           git add ./release/Magisk_stable_app.apk
