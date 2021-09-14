@@ -16,7 +16,7 @@ jobs:
         uses: actions/checkout@v2
         with:
           repository: "topjohnwu/Magisk"
-          ref: 'v23.0'
+          ref: '8aaa45c62a204af35da9d5366dc8b6698b1d043b'
           submodules: 'recursive'
           fetch-depth: 0
 
