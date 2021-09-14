@@ -99,7 +99,6 @@ jobs:
           cp /opt/Magisk_alpha_stub.apk ./release/Magisk_alpha_stub.apk
           MagiskVerison=`cat /opt/MagiskVersion.prop`
           echo '{"magisk":{"version":"'$MagiskVerison'","versionCode":"23001","link":"Magisk_alpha_app.apk","link64":"Magisk_alpha_app.apk","note":"https://cdn.jsdelivr.net/gh/vvb2060/Magisk@bb56d78bca333b5c60f7535eb1a4ed41a1567497/app/src/main/res/raw/changelog.md"},"stub":{"versionCode":"21","link":"Magisk_alpha_stub.apk"}}' > ./release/alpha.json
-          ls -a
           git config --global user.name ${{ secrets.GITHUBUSER }}
           git config --global user.email ${{ secrets.GITHUBEMAIL }}
           git add ./release/Magisk_alpha_stub.apk
