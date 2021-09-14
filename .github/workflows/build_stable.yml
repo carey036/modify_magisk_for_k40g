@@ -102,7 +102,7 @@ jobs:
 
       - name: upload to repo
         run: |
-          cp /opt/Magisk_stable_app.apk_app ./release/Magisk_stable_app.apk
+          cp /opt/Magisk_stable_app.apk ./release/Magisk_stable_app.apk
           git config --global user.name ${{ secrets.GITHUBUSER }}
           git config --global user.email ${{ secrets.GITHUBEMAIL }}
           git add ./release/Magisk_stable_app.apk
