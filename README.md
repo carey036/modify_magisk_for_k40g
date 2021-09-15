@@ -1,4 +1,4 @@
-# modify_magisk_for_k40g_and_n10p
+# magisk_for_k40g_and_n10p
 
 为k40g和n10p提供修改后的面具，不定时进行build
 
@@ -12,7 +12,7 @@
 
 * 本版本面具与官方面具、之前在coolapk发布的修改版本面具签名不同，需要卸载之前安装的面具管理器，再进行安装这一个 
 
-* alpha版本的面具每周四自动编译，如果需要订阅更新，可以使用自定义通道 https://raw.githubusercontent.com/carey036/modify_magisk_for_k40g/main/release/alpha.json
+* alpha版本的面具每周四自动编译，如果需要订阅更新，可以使用自定义通道  https://magisk.pages.dev/alpha.json
 
 ### 下载方式
 
