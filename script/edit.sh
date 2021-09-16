@@ -42,4 +42,4 @@ EOF
 echo "const val XS = 5" >> app/src/main/java/com/topjohnwu/magisk/core/Config.kt
 sed -i "s/<item>Alpha<\/item>/<item>Alpha<\/item>\n<item>XS<\/item>/" app/src/main/res/values/arrays.xml
 sed -i "s/import com.topjohnwu.magisk.core.Config.Value.CUSTOM_CHANNEL/import com.topjohnwu.magisk.core.Config.Value.XS\nimport com.topjohnwu.magisk.core.Config.Value.CUSTOM_CHANNEL"
-sed -i 's/CUSTOM_CHANNEL -> fetchCustomUpdate(Config.customChannelUrl)/XS -> fetchCustomUpdate("https://magisk.pages.dev/alpha.json")\nCUSTOM_CHANNEL -> fetchCustomUpdate(Config.customChannelUrl)/' app/src/main/java/com/topjohnwu/magisk/data/repository/NetworkService.kt
+sed -i "s/CUSTOM_CHANNEL -> fetchCustomUpdate(Config.customChannelUrl)/XS -> fetchCustomUpdate(\"https://magisk.pages.dev/alpha.json\")\nCUSTOM_CHANNEL -> fetchCustomUpdate(Config.customChannelUrl)/" app/src/main/java/com/topjohnwu/magisk/data/repository/NetworkService.kt
