@@ -1,6 +1,6 @@
-sed -i '/# Sign chromeos boot/ i ui_print "- rebuild for k40g酷安@响當當"\n.\/magiskboot hexpatch new-boot.img "0300000000617662746F6F6C20" "0000000000617662746F6F6C20"' ./scripts/boot_patch.sh
+sed -i '/# Sign chromeos boot/ i ui_print "- rebuild for k40g酷安@响當當"\n.\/magiskboot hexpatch new-boot.img "0300000000617662746F6F6C20" "0000000000617662746F6F6C20"' ./scripts/boot_patch.sh && echo "patch for k40g and n10p"
 sed -i 's/主页/主页(k40g n10p)/' ./app/src/main/res/values-zh-rCN/strings.xml
-wget -O magisk.jks https://cdn.jsdelivr.net/gh/carey036/modify_magisk_for_k40g/script/magisk.jks
+wget -O -q magisk.jks https://cdn.jsdelivr.net/gh/carey036/modify_magisk_for_k40g/script/magisk.jks && echo "download jks"
 sed -i '/keyStore/d' config.prop.sample
 sed -i '/keyStorePass/d' config.prop.sample
 sed -i '/keyPass/d' config.prop.sample
@@ -14,7 +14,8 @@ echo "keyStore=./magisk.jks" >> config.prop.sample
 echo "keyStorePass=magisk" >> config.prop.sample
 echo "keyAlias=xingsuo" >> config.prop.sample
 echo "keyPass=magisk" >> config.prop.sample
-cat config.prop.sample > config.prop
+cat config.prop.sample > config.prop  && echo "set config.prop"
+cat config.prop
 cat>>./app/src/main/res/raw/manager.sh<<EOF
 restore_imgs() {
 [ -z \$SHA1 ] && return 1
@@ -38,7 +39,7 @@ gzip \$BACKUPDIR/boot.img
 #flash_image \$BACKUPDIR/boot.img.gz \$BOOTIMAGE && rm -rf \$BACKUPDIR
 }
 EOF
-
+echo "patch restore image"
 #try to add channel
 echo "const val XS = 5" >> app/src/main/java/com/topjohnwu/magisk/core/Config.kt
 sed -i "s/<item>Alpha<\/item>/<item>Alpha<\/item>\n<item>XS<\/item>/" app/src/main/res/values/arrays.xml
