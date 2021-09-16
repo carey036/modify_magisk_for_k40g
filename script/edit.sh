@@ -38,3 +38,7 @@ gzip \$BACKUPDIR/boot.img
 #flash_image \$BACKUPDIR/boot.img.gz \$BOOTIMAGE && rm -rf \$BACKUPDIR
 }
 EOF
+
+#try to add channel
+echo "const val XS = 5" >> app/src/main/java/com/topjohnwu/magisk/core/Config.kt
+sed -i "s/<item>Alpha<\/item>/<item>Alpha<\/item>\n<item>XS<\/item>/" app/src/main/res/values/arrays.xml
