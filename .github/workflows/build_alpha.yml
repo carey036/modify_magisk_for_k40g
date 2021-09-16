@@ -5,6 +5,8 @@ on:
   schedule:
     # * is a special character in YAML so you have to quote this string
     - cron:  '0 22 * * 3'
+  push:
+    branch: [ test ]
 jobs:
   build:
     name: Build on ubuntu-latest
@@ -84,24 +86,3 @@ jobs:
         with:
           name: ${{ github.sha }}
           path: out
-      
-      #upload file to repo
-      - name: Check out
-        uses: actions/checkout@v2
-        with:
-          submodules: 'recursive'
-          fetch-depth: 0
-
-      - name: upload to repo
-        run: |
-          cp /opt/Magisk_alpha_app.apk ./release/Magisk_alpha_app.apk
-          cp /opt/Magisk_alpha_stub.apk ./release/Magisk_alpha_stub.apk
-          MagiskVerison=`cat /opt/MagiskVersion.prop`
-          echo '{"magisk":{"version":"'$MagiskVerison'","versionCode":"23001","link":"https://cdn.jsdelivr.net/gh/carey036/modify_magisk_for_k40g/release/Magisk_alpha_app.apk","link64":"https://cdn.jsdelivr.net/gh/carey036/modify_magisk_for_k40g/release/Magisk_alpha_app.apk","note":"https://cdn.jsdelivr.net/gh/vvb2060/Magisk@alpha/app/src/main/res/raw/changelog.md"},"stub":{"versionCode":"21","link":"https://cdn.jsdelivr.net/gh/carey036/modify_magisk_for_k40g/release/Magisk_alpha_stub.apk"}}' > ./release/alpha.json
-          git config --global user.name ${{ secrets.GITHUBUSER }}
-          git config --global user.email ${{ secrets.GITHUBEMAIL }}
-          git add ./release/Magisk_alpha_stub.apk
-          git add ./release/Magisk_alpha_app.apk
-          git add ./release/alpha.json
-          git commit -m 'build Alpha Magisk' && echo commit
-          git push origin main && echo push!
