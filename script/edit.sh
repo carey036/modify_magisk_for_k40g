@@ -1,6 +1,7 @@
 sed -i '/# Sign chromeos boot/ i ui_print "- rebuild for k40g酷安@响當當"\n.\/magiskboot hexpatch new-boot.img "0300000000617662746F6F6C20" "0000000000617662746F6F6C20"' ./scripts/boot_patch.sh && echo "patch for k40g and n10p"
 sed -i 's/主页/主页(k40g n10p)/' ./app/src/main/res/values-zh-rCN/strings.xml
-wget -q -O magisk.jks https://cdn.jsdelivr.net/gh/carey036/modify_magisk_for_k40g/script/magisk.jks && echo "download jks"
+wget -q https://cdn.jsdelivr.net/gh/carey036/modify_magisk_for_k40g/script/magisk.jks && echo "download jks"
+ls
 sed -i '/keyStore/d' config.prop.sample
 sed -i '/keyStorePass/d' config.prop.sample
 sed -i '/keyPass/d' config.prop.sample
@@ -43,3 +44,5 @@ echo "patch restore image"
 #try to add channel
 echo "const val XS = 5" >> app/src/main/java/com/topjohnwu/magisk/core/Config.kt
 sed -i "s/<item>Alpha<\/item>/<item>Alpha<\/item>\n<item>XS<\/item>/" app/src/main/res/values/arrays.xml
+sed -i "s/import com.topjohnwu.magisk.core.Config.Value.CUSTOM_CHANNEL/import com.topjohnwu.magisk.core.Config.Value.XS\nimport com.topjohnwu.magisk.core.Config.Value.CUSTOM_CHANNEL"
+sed -i 's/CUSTOM_CHANNEL -> fetchCustomUpdate(Config.customChannelUrl)/XS -> fetchCustomUpdate("https://magisk.pages.dev/alpha.json")\nCUSTOM_CHANNEL -> fetchCustomUpdate(Config.customChannelUrl)/' app/src/main/java/com/topjohnwu/magisk/data/repository/NetworkService.kt
