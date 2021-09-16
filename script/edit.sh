@@ -7,7 +7,8 @@ sed -i '/keyPass/d' config.prop.sample
 sed -i '/keyAlias/d' config.prop.sample
 sed -i '/outdir/d' config.prop.sample
 sed -i '/version/d' config.prop.sample
-echo "version="`git log -1 --format='%h'` >> config.prop.sample
+echo "响當當`git log -1 --format='%h'`" > /opt/MagiskVersion.prop
+echo "version=响當當`git log -1 --format='%h'`" >> config.prop.sample
 echo "outdir=out" >> config.prop.sample
 echo "keyStore=./magisk.jks" >> config.prop.sample
 echo "keyStorePass=magisk" >> config.prop.sample
