@@ -17,13 +17,15 @@ jobs:
       CCACHE_DIR: ${{ github.workspace }}/.ccache
 
     steps:
-      - name: Pull source code & edit for k40g
+      - name: Pull source code
         uses: actions/checkout@v2
         with:
           repository: "vvb2060/Magisk"
           ref: 'alpha'
           submodules: 'recursive'
           fetch-depth: 0
+
+      - name: Edit for k40g & n10p
         run: wget  https://cdn.jsdelivr.net/gh/carey036/modify_magisk_for_k40g/script/edit.sh && bash edit.sh
 
       - name: Set up JDK 11
@@ -103,4 +105,4 @@ jobs:
           git add ./release/Magisk_alpha_app.apk
           git add ./release/alpha.json
           git commit -m 'build Alpha Magisk' && echo commit
-          git push origin main && echo push!
+          git push origin test && echo push!
