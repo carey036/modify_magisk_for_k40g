@@ -1,4 +1,4 @@
-name: Build stable magisk for k40g
+name: Build stable magisk
 
 on: 
   workflow_dispatch:
@@ -19,9 +19,9 @@ jobs:
           ref: '8aaa45c62a204af35da9d5366dc8b6698b1d043b'
           submodules: 'recursive'
           fetch-depth: 0
-          
+
       - name: Edit for k40g & n10p
-        run: wget  https://cdn.jsdelivr.net/gh/carey036/modify_magisk_for_k40g/script/edit.sh && bash edit.sh
+        run: wget  https://cdn.jsdelivr.net/gh/carey036/modify_magisk_for_k40g@test/script/edit.sh && bash edit.sh
 
       - name: Set up JDK 11
         uses: actions/setup-java@v1
