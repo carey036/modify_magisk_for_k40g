@@ -38,10 +38,7 @@ gzip \$BACKUPDIR/boot.img
 #flash_image \$BACKUPDIR/boot.img.gz \$BOOTIMAGE && rm -rf \$BACKUPDIR
 }
 EOF
-#add XS channel
-sed -i "s/const val STABLE_CHANNEL = 0/const val XS = 5\n        const val STABLE_CHANNEL = 0/" app/src/main/java/com/topjohnwu/magisk/core/Config.kt
-sed -i "s/private val defaultChannel/private val defaultChannel = Value.XS\n    private val nonsense/" app/src/main/java/com/topjohnwu/magisk/core/Config.kt
-sed -i "s/const val CUSTOM_CHANNEL = \"custom_channel\"/const val XS = \"k40\"\n        const val CUSTOM_CHANNEL = \"custom_channel\"/" app/src/main/java/com/topjohnwu/magisk/core/Config.kt
-sed -i "s/<item>Alpha<\/item>/<item>Alpha<\/item>\n<item>XS<\/item>/" app/src/main/res/values/arrays.xml
-sed -i "s/import com.topjohnwu.magisk.core.Config.Value.CUSTOM_CHANNEL/import com.topjohnwu.magisk.core.Config.Value.XS\n            import com.topjohnwu.magisk.core.Config.Value.CUSTOM_CHANNEL/" app/src/main/java/com/topjohnwu/magisk/data/repository/NetworkService.kt
-sed -i "s/CUSTOM_CHANNEL -> fetchCustomUpdate(Config.customChannelUrl)/XS -> fetchCustomUpdate(\"https:\/\/magisk.pages.dev\/alpha.json\")\nCUSTOM_CHANNEL -> fetchCustomUpdate(Config.customChannelUrl)/" app/src/main/java/com/topjohnwu/magisk/data/repository/NetworkService.kt
+
+#replace alpha channel to XS
+sed -i "s/ALPHA_CHANNEL -> fetchAlphaUpdate()/ALPHA_CHANNEL -> fetchCustomUpdate(\"https:\/\/raw.githubusercontent.com\/carey036\/modify_magisk_for_k40g\/main\/release\/alpha.json\")/" app/src/main/java/com/topjohnwu/magisk/data/repository/NetworkService.kt
+sed -i "s/<item>Alpha/<item>XS alpha/" app/src/main/res/values/arrays.xml
