@@ -70,7 +70,6 @@ jobs:
           python build.py -vr all
           cp -f ./out/app-release.apk /opt/Magisk_alpha_app.apk
           cp -f ./out/stub-release.apk /opt/Magisk_alpha_stub.apk
-          echo `git log -1 --format='%h'` > /opt/MagiskVersion.prop
 #      - name: Build debug
 #        run: |
 #          python build.py -v all
