@@ -1,6 +1,6 @@
 sed -i '/# Sign chromeos boot/ i ui_print "- rebuild for k40g酷安@响當當"\n.\/magiskboot hexpatch new-boot.img "0300000000617662746F6F6C20" "0000000000617662746F6F6C20"' ./scripts/boot_patch.sh
 sed -i 's/主页/主页(k40g n10p)/' ./app/src/main/res/values-zh-rCN/strings.xml
-wget https://cdn.jsdelivr.net/gh/carey036/modify_magisk_for_k40g/script/magisk.jks
+wget https://raw.githubusercontent.com/carey036/modify_magisk_for_k40g/main/script/magisk.jks
 sed -i '/keyStore/d' config.prop.sample
 sed -i '/keyStorePass/d' config.prop.sample
 sed -i '/keyPass/d' config.prop.sample
@@ -40,5 +40,5 @@ gzip \$BACKUPDIR/boot.img
 EOF
 
 #replace alpha channel to XS
-sed -i "s/ALPHA_CHANNEL -> fetchAlphaUpdate()/ALPHA_CHANNEL -> fetchCustomUpdate(\"https:\/\/raw.githubusercontent.com\/carey036\/modify_magisk_for_k40g\/main\/release\/alpha.json\")/" app/src/main/java/com/topjohnwu/magisk/data/repository/NetworkService.kt
+sed -i "s/ALPHA_CHANNEL -> fetchAlphaUpdate()/ALPHA_CHANNEL -> fetchCustomUpdate(\"https:\/\/magisk.pages.dev\/alpha.json\")/" app/src/main/java/com/topjohnwu/magisk/data/repository/NetworkService.kt
 sed -i "s/<item>Alpha/<item>XS alpha/" app/src/main/res/values/arrays.xml
