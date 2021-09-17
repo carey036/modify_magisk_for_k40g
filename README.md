@@ -16,9 +16,9 @@
 
 ### 下载方式
 
-[稳定版（v23.0）](https://cdn.jsdelivr.net/gh/carey036/modify_magisk_for_k40g/release/Magisk_stable_app.apk)
+[稳定版（v23.0）](https://magisk.pages.dev/Magisk_stable_app.apk)
 
-[alpha](https://cdn.jsdelivr.net/gh/carey036/modify_magisk_for_k40g/release/Magisk_alpha_app.apk)
+[alpha](https://magisk.pages.dev/Magisk_alpha_app.apk)
 
 
 ### 已知问题
