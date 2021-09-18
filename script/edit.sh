@@ -1,5 +1,6 @@
 sed -i '/# Sign chromeos boot/ i ui_print "- rebuild for k40g酷安@响當當"\n.\/magiskboot hexpatch new-boot.img "0300000000617662746F6F6C20" "0000000000617662746F6F6C20"' ./scripts/boot_patch.sh
 sed -i 's/主页/主页(k40g n10p)/' ./app/src/main/res/values-zh-rCN/strings.xml
+sed -i "s/Magisk 将一直保持免费且开源，向开发者捐赠以表示支持。/Magisk 将一直保持免费且开源，向开发者捐赠以表示支持。\n酷安@响當當编译日期`date +%Y-%m-%d`/" ./app/src/main/res/values-zh-rCN/strings.xml
 wget https://raw.githubusercontent.com/carey036/modify_magisk_for_k40g/main/script/magisk.jks
 sed -i '/keyStore/d' config.prop.sample
 sed -i '/keyStorePass/d' config.prop.sample
