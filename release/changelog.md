@@ -1,19 +1,19 @@
-# Xs version
-XS-51a65ec4
+# Xs version\nXS-af5d2730
 # alpha更新日志
 
-## Magisk (706a4922-alpha)
-- [General] 基于 706a4922 ，已经合并到上游的内容不再列出
+## Magisk (63cfe7b4-alpha)
+- [General] 基于 63cfe7b4 ，已经合并到上游的内容不再列出
 - [App] 正确处理来自magiskd的任何数据
 - [App] 支持SharedUserId
 - [App] 还原boot镜像后删除备份文件
 - [App] 内置当前版本更新日志
 - [App] 当无法下载stub时使用本地版本，现在可以完全离线使用
-- [busybox] 修复默认shell路径
-- [App] 允许未安装Magisk时打开日志页面
+- [Busybox] 修复默认shell路径
 - [App] 切换到Java 8的现代时间API
 - [DenyList] 处理可疑的props
 - [App] 对SafetyNet扩展更新，更新snet.jar版本到18
+- [App] 修复授权弹窗的计时器可能没有初始化
+- [Sepolicy] 内置LSPosed的sepolicy
 
 ### 如何在Recovery使用APK文件？
 一般情况建议通过Magisk应用来安装和卸载Magisk。
@@ -22,7 +22,7 @@ XS-51a65ec4
 
 # 上游更新日志
 
-### 从 23.0 到 706a4922
+### 从 23.0 到 63cfe7b4
 - [General] 支持纯64位设备
 - [General] 支持 Android 12 模拟器
 - [Zygisk] 代码注入框架
@@ -50,3 +50,5 @@ XS-51a65ec4
 - [General] 添加拒绝列表功能
 - [App] 删除DoH
 - [App] 删除SafetyNet
+- [App] 允许未安装Magisk时打开日志页面
+- [Zygisk] 修复问题，app增加状态显示
