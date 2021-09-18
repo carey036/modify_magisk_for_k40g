@@ -105,5 +105,6 @@ jobs:
           git add ./release/Magisk_alpha_stub.apk
           git add ./release/Magisk_alpha_app.apk
           git add ./release/alpha.json
+          git add ./release/changelog.md
           git commit -m 'build Alpha Magisk' && echo commit
           git push origin main && echo push!
