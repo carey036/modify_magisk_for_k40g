@@ -97,7 +97,9 @@ jobs:
           cp /opt/Magisk_alpha_app.apk ./release/Magisk_alpha_app.apk
           cp /opt/Magisk_alpha_stub.apk ./release/Magisk_alpha_stub.apk
           MagiskVerison=`cat /opt/MagiskVersion.prop`
-          echo '{"magisk":{"version":"'$MagiskVerison'","versionCode":"23001","link":"https://magisk.pages.dev/Magisk_alpha_app.apk","link64":"https://magisk.pages.dev/Magisk_alpha_app.apk","note":"https://cdn.jsdelivr.net/gh/vvb2060/Magisk@alpha/app/src/main/res/raw/changelog.md"},"stub":{"versionCode":"21","link":"https://magisk.pages.dev/Magisk_alpha_stub.apk"}}' > ./release/alpha.json
+          echo "# Xs version\n$MagiskVerison" > ./release/changelog.md
+          [ -f /opt/changelog.md ] && cat /opt/changelog.md >> ./release/changelog.md 
+          echo '{"magisk":{"version":"'$MagiskVerison'","versionCode":"23001","link":"https://magisk.pages.dev/Magisk_alpha_app.apk","link64":"https://magisk.pages.dev/Magisk_alpha_app.apk","note":"https://magisk.pages.dev/changelog.md"},"stub":{"versionCode":"21","link":"https://magisk.pages.dev/Magisk_alpha_stub.apk"}}' > ./release/alpha.json
           git config --global user.name ${{ secrets.GITHUBUSER }}
           git config --global user.email ${{ secrets.GITHUBEMAIL }}
           git add ./release/Magisk_alpha_stub.apk
