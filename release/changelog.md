@@ -1,4 +1,5 @@
-# Xs version\nXS-af5d2730
+# Xs version
+XS-af5d2730
 # alpha更新日志
 
 ## Magisk (63cfe7b4-alpha)

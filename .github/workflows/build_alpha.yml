@@ -97,7 +97,13 @@ jobs:
           cp /opt/Magisk_alpha_app.apk ./release/Magisk_alpha_app.apk
           cp /opt/Magisk_alpha_stub.apk ./release/Magisk_alpha_stub.apk
           MagiskVerison=`cat /opt/MagiskVersion.prop`
-          echo "# Xs version\n$MagiskVerison" > ./release/changelog.md
+          cat>>./release/changelog.md<<EOF
+          # XS Verison
+          $MagiskVerison
+          * 修复k40g和n10p无限重启的问题
+          * 使用替换方法实现恢复原厂镜像
+          * 替换alpha更新通道为Xs alpha（可用于升级本版本面具管理器）
+          EOF
           [ -f /opt/changelog.md ] && cat /opt/changelog.md >> ./release/changelog.md 
           echo '{"magisk":{"version":"'$MagiskVerison'","versionCode":"23001","link":"https://magisk.pages.dev/Magisk_alpha_app.apk","link64":"https://magisk.pages.dev/Magisk_alpha_app.apk","note":"https://magisk.pages.dev/changelog.md"},"stub":{"versionCode":"21","link":"https://magisk.pages.dev/Magisk_alpha_stub.apk"}}' > ./release/alpha.json
           git config --global user.name ${{ secrets.GITHUBUSER }}
