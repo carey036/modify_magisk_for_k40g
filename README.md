@@ -20,6 +20,7 @@
 
 [alpha](https://magisk.pages.dev/Magisk_alpha_app.apk)
 
+[k40g 一键root工具](https://magisk.pages.dev/k40g_onekey.zip)
 
 ### 已知问题
 
