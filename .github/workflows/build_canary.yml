@@ -92,7 +92,7 @@ jobs:
           cp /opt/Magisk_canary_app.apk ./release/Magisk_canary_app.apk
           cp /opt/Magisk_canary_stub.apk ./release/Magisk_canary_stub.apk
           MagiskVerison=`cat /opt/MagiskVersion.prop`
-          cat>./release/changelog.md<<EOF
+          cat>./release/changelog_canary.md<<EOF
           # XS Verison
           $MagiskVerison
           * 修复k40g和n10p无限重启的问题
