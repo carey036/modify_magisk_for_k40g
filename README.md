@@ -18,13 +18,15 @@
 
 [稳定版（v23.0）](https://magisk.pages.dev/Magisk_stable_app.apk)
 
+[canary](https://magisk.pages.dev/Magisk_canary_app.apk)
+
 [alpha](https://magisk.pages.dev/Magisk_alpha_app.apk)
+
+alpha版本webview有问题
 
 [k40g 一键root工具](https://raw.githubusercontent.com/carey036/OutSide/master/k40gBoot/k40g_onekey.zip)
 
-### 已知问题
-
-* 如果当前面具版本和面具管理器版本不对应，会出现修复提示，但修复无效，刷入当前版本修补的boot即可
+建议使用稳定版，如果无法降级，可以先删除/data/adb/magisk 文件夹和/data/adb/magisk.db文件后，再使用一键工具刷入v23.0稳定版
 
 ### 使用方法
 

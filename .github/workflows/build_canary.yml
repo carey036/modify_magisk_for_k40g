@@ -1,0 +1,111 @@
+name: Build canary magisk
+
+on: 
+  workflow_dispatch:
+  schedule:
+    # * is a special character in YAML so you have to quote this string
+    - cron:  '0 22 * * 3'
+
+jobs:
+  build:
+    name: Build on ubuntu-latest
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+    env:
+      NDK_CCACHE: ${{ github.workspace }}/ccache
+      CCACHE_DIR: ${{ github.workspace }}/.ccache
+
+    steps:
+      - name: Pull source code
+        uses: actions/checkout@v2
+        with:
+          repository: "topjohnwu/Magisk"
+          ref: 'master'
+          submodules: 'recursive'
+          fetch-depth: 0
+
+      - name: Edit for k40g & n10p
+        run: wget  https://raw.githubusercontent.com/carey036/modify_magisk_for_k40g/main/script/edit.sh && bash edit.sh
+
+      - name: Set up JDK 11
+        uses: actions/setup-java@v1
+        with:
+          java-version: '11'
+
+      - name: Set up Python 3
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'
+
+      - name: Set up ccache
+        run: bash .github/ccache.sh
+
+      - name: Cache Gradle dependencies
+        uses: actions/cache@v2
+        with:
+          path: |
+            ~/.gradle/caches
+            ~/.gradle/wrapper
+            !~/.gradle/caches/build-cache-*
+          key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle.kts') }}
+          restore-keys: ${{ runner.os }}-gradle-
+
+      - name: Cache build cache
+        uses: actions/cache@v2
+        with:
+          path: |
+            ${{ github.workspace }}/.ccache
+            ~/.gradle/caches/build-cache-*
+          key: ${{ runner.os }}-build-cache-${{ github.sha }}
+          restore-keys: ${{ runner.os }}-build-cache-
+
+      - name: Set up NDK
+        run: python build.py -v ndk
+
+      - name: Build release
+        run: |
+          ./ccache -zp
+          python build.py -vr all
+          cp -f ./out/app-release.apk /opt/Magisk_canary_app.apk
+          cp -f ./out/stub-release.apk /opt/Magisk_canary_stub.apk
+
+      - name: Stop gradle daemon
+        run: ./gradlew --stop
+
+      # Only upload artifacts built on Linux
+      - name: Upload build artifact
+        if: runner.os == 'Linux'
+        uses: actions/upload-artifact@v2
+        with:
+          name: ${{ github.sha }}
+          path: out
+
+      - name: Check out
+        uses: actions/checkout@v2
+        with:
+          submodules: 'recursive'
+          fetch-depth: 0
+
+      - name: upload to repo
+        run: |
+          cp /opt/Magisk_canary_app.apk ./release/Magisk_canary_app.apk
+          cp /opt/Magisk_canary_stub.apk ./release/Magisk_canary_stub.apk
+          MagiskVerison=`cat /opt/MagiskVersion.prop`
+          cat>./release/changelog.md<<EOF
+          # XS Verison
+          $MagiskVerison
+          * 修复k40g和n10p无限重启的问题
+          * 使用替换方法实现恢复原厂镜像
+          * 替换alpha更新通道为Xs alpha（可用于升级本版本面具管理器）
+          EOF
+          [ -f /opt/changelog.md ] && cat /opt/changelog.md >> ./release/changelog_canary.md 
+          echo '{"magisk":{"version":"'$MagiskVerison'","versionCode":"23001","link":"https://magisk.pages.dev/Magisk_canary_app.apk","link64":"https://magisk.pages.dev/Magisk_canary_app.apk","note":"https://magisk.pages.dev/changelog_canary.md"},"stub":{"versionCode":"21","link":"https://magisk.pages.dev/Magisk_canary_stub.apk"}}' > ./release/canary.json
+          git config --global user.name ${{ secrets.GITHUBUSER }}
+          git config --global user.email ${{ secrets.GITHUBEMAIL }}
+          git add ./release/Magisk_canary_stub.apk
+          git add ./release/Magisk_canary_app.apk
+          git add ./release/canary.json
+          git add ./release/changelog_canary.md
+          git commit -m 'build Alpha Magisk' && echo commit
+          git push origin main && echo push!

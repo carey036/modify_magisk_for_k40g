@@ -44,3 +44,7 @@ EOF
 #replace alpha channel to XS
 sed -i "s/ALPHA_CHANNEL -> fetchAlphaUpdate()/ALPHA_CHANNEL -> fetchCustomUpdate(\"https:\/\/magisk.pages.dev\/alpha.json\")/" app/src/main/java/com/topjohnwu/magisk/data/repository/NetworkService.kt
 sed -i "s/<item>Alpha/<item>XS alpha/" app/src/main/res/values/arrays.xml
+
+#replace canary channel to XS
+sed -i "s/CANARY_CHANNEL -> fetchCanaryUpdate()/CANARY_CHANNEL -> fetchCustomUpdate(\"https:\/\/magisk.pages.dev\/canary.json\")/" app/src/main/java/com/topjohnwu/magisk/data/repository/NetworkService.kt
+sed -i "s/<item>Canary/<item>XS Canary/" app/src/main/res/values/arrays.xml
