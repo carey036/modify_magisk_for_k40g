@@ -12,7 +12,9 @@
 
 * 本版本面具与官方面具、之前在coolapk发布的修改版本面具签名不同，需要卸载之前安装的面具管理器，再进行安装这一个 
 
-* alpha版本的面具每周四自动编译，如果需要订阅更新，可以使用自定义通道  https://magisk.pages.dev/alpha.json
+* canary版本的面具每周四自动编译，如果需要订阅更新，可以使用自定义通道  https://magisk.pages.dev/alpha.json、
+
+* alpha版本不定时更新
 
 ### 下载方式
 
@@ -21,8 +23,6 @@
 [canary](https://magisk.pages.dev/Magisk_canary_app.apk)
 
 [alpha](https://magisk.pages.dev/Magisk_alpha_app.apk)
-
-alpha版本webview有问题
 
 [k40g 一键root工具](https://raw.githubusercontent.com/carey036/OutSide/master/k40gBoot/k40g_onekey.zip)
 
