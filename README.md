@@ -26,6 +26,8 @@
 
 [k40g 一键root工具](https://raw.githubusercontent.com/carey036/OutSide/master/k40gBoot/k40g_onekey.zip)
 
+[k40g 一键root工具（蓝奏云）](https://3ku.lanzoui.com/iV2Sjwqtu3a)
+
 建议使用稳定版，如果无法降级，可以先删除/data/adb/magisk 文件夹和/data/adb/magisk.db文件后，再使用一键工具刷入v23.0稳定版
 
 ### 使用方法
