@@ -20,9 +20,9 @@
 
 [稳定版（v23.0）](https://magisk.pages.dev/Magisk_stable_app.apk)
 
-[canary](https://magisk.pages.dev/Magisk_canary_app.apk)
+~~[canary](https://magisk.pages.dev/Magisk_canary_app.apk)~~
 
-[alpha](https://magisk.pages.dev/Magisk_alpha_app.apk)
+~~[alpha](https://magisk.pages.dev/Magisk_alpha_app.apk)~~ 停止维护,建议使用官方版本
 
 [k40g 一键root工具](https://raw.githubusercontent.com/carey036/OutSide/master/k40gBoot/k40g_onekey.zip)
 
