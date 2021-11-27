@@ -10,9 +10,11 @@
 
 * alpha基于[vvb2060/Magisk at alpha (github.com)](https://github.com/vvb2060/Magisk/tree/alpha) 进行修改
 
+* 原作者alpha版本已经处于可用状态，**<u>建议使用原作者版本，本版本只对还原原厂镜像做了修改（仅测试）</u>**
+
 * 本版本面具与官方面具、之前在coolapk发布的修改版本面具签名不同，需要卸载之前安装的面具管理器，再进行安装这一个 
 
-* canary版本的面具每周四自动编译，如果需要订阅更新，可以使用自定义通道  https://magisk.pages.dev/alpha.json、
+* ~~canary版本的面具每周四自动编译，如果需要订阅更新，可以使用自定义通道  https://magisk.pages.dev/alpha.json~~、
 
 * alpha版本不定时更新
 
@@ -20,15 +22,16 @@
 
 [稳定版（v23.0）](https://magisk.pages.dev/Magisk_stable_app.apk)
 
-~~[canary](https://magisk.pages.dev/Magisk_canary_app.apk)~~
+~~[canary](https://magisk.pages.dev/Magisk_canary_app.apk)~~停止维护
 
-~~[alpha](https://magisk.pages.dev/Magisk_alpha_app.apk)~~ 停止维护,建议使用官方版本
+[alpha](https://magisk.pages.dev/Magisk_alpha_app.apk)
 
 [k40g 一键root工具](https://raw.githubusercontent.com/carey036/OutSide/master/k40gBoot/k40g_onekey.zip)
 
 [k40g 一键root工具（蓝奏云）](https://3ku.lanzoui.com/iV2Sjwqtu3a)
 
-建议使用稳定版，如果无法降级，可以先删除/data/adb/magisk 文件夹和/data/adb/magisk.db文件后，再使用一键工具刷入v23.0稳定版
+建议安卓11 使用稳定版本，安卓12使用alpha版本
+
 
 ### 使用方法
 
