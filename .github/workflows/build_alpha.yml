@@ -105,7 +105,7 @@ jobs:
           * 替换alpha更新通道为Xs alpha（可用于升级本版本面具管理器）
           EOF
           [ -f /opt/changelog.md ] && cat /opt/changelog.md >> ./release/changelog.md 
-          echo '{"magisk":{"version":"'$MagiskVerison'","versionCode":"23001","link":"https://magisk.pages.dev/Magisk_alpha_app.apk","link64":"https://magisk.pages.dev/Magisk_alpha_app.apk","note":"https://magisk.pages.dev/changelog.md"},"stub":{"versionCode":"21","link":"https://magisk.pages.dev/Magisk_alpha_stub.apk"}}' > ./release/alpha.json
+          echo '{"magisk":{"version":"'$MagiskVerison'","versionCode":"23015","link":"https://magisk.pages.dev/Magisk_alpha_app.apk","link64":"https://magisk.pages.dev/Magisk_alpha_app.apk","note":"https://magisk.pages.dev/changelog.md"},"stub":{"versionCode":"21","link":"https://magisk.pages.dev/Magisk_alpha_stub.apk"}}' > ./release/alpha.json
           git config --global user.name ${{ secrets.GITHUBUSER }}
           git config --global user.email ${{ secrets.GITHUBEMAIL }}
           git add ./release/Magisk_alpha_stub.apk
