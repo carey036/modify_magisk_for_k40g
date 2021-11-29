@@ -14,7 +14,7 @@
 
 * 本版本面具与官方面具、之前在coolapk发布的修改版本面具签名不同，需要卸载之前安装的面具管理器，再进行安装这一个 
 
-* ~~canary版本的面具每周四自动编译，如果需要订阅更新，可以使用自定义通道  https://magisk.pages.dev/alpha.json~~、
+* ~~canary版本的面具每周四自动编译，如果需要订阅更新，可以使用自定义通道  https://magisk.pages.dev/alpha.json~~
 
 * alpha版本不定时更新
 
@@ -26,12 +26,15 @@
 
 [alpha](https://magisk.pages.dev/Magisk_alpha_app.apk)
 
-[k40g 一键root工具](https://raw.githubusercontent.com/carey036/OutSide/master/k40gBoot/k40g_onekey.zip)
-
-[k40g 一键root工具（蓝奏云）](https://3ku.lanzoui.com/iV2Sjwqtu3a)
-
 建议安卓11 使用稳定版本，安卓12使用alpha版本
 
+### 相关下载
+
+[k40g 一键root工具（蓝奏云）密码:dkiz](https://3ku.lanzoui.com/b02cngjad)
+使用方法：
+首先 下载【一键root脚本（不含boot）.zip】并解压
+然后 下载对应的boot文件并解压，将解压后文件命名为root.img，放到解压后的目录里面
+最后 双击 【一键刷入root.bat】
 
 ### 使用方法
 
