@@ -1,11 +1,11 @@
 # XS Verison
-XS-f7c4a575a
+XS-7f85662fa
 * 修复k40g和n10p无限重启的问题
 * 使用替换方法实现恢复原厂镜像
 * 替换alpha更新通道为Xs alpha（可用于升级本版本面具管理器）
 # alpha更新日志
 
-## Magisk (0f71edee-alpha)
+## Magisk (b76a3614-alpha)
 - [App] 支持SharedUserId
 - [App] 还原boot镜像后删除备份文件
 - [App] 内置当前版本更新日志
@@ -24,6 +24,7 @@ XS-f7c4a575a
 - [App] 修复排除列表部分进程可能不显示
 - [App] 支持设置KEEPVBMETAFLAG标志，以跳过处理boot镜像中的vbmeta
 - [Zygisk] 修复Xhook
+- [App] 适配 Android 12L
 
 ### 如何安装？
 通过Magisk应用来安装和卸载Magisk，一般情况应直接在应用内完成，第一次安装等特殊情况应修补镜像后使用fastboot/odin工具刷入。
